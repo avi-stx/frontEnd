@@ -1,5 +1,6 @@
 import TableHeader from './TableHeader';
 import './FilesTable.css'
+import TableBody from './TableBody';
 
 const FilesTable = () => 
 {
@@ -33,7 +34,8 @@ const FilesTable = () =>
 
     return (
         <table className="styled-table">
-            <TableHeader />         
+            <TableHeader />
+            <TableBody filesList={demoStruct}/>         
         </table>
     )
 }
