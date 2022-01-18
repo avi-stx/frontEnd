@@ -6,6 +6,7 @@ function App() {
     <div className="App">
       <header>Welcome to Micro-Server by Tal Alfi</header>
       {/* <Upload /> */}
+      
       <FilesTable />
     </div>
   );
