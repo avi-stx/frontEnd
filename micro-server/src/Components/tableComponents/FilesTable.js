@@ -9,24 +9,28 @@ const FilesTable = () =>
             fileName : "tal",
             extension :"txt",
             size : "20KB",
+            id:0,
             uploadDate: Date.now()
         },
         {
             fileName : "alfi",
             extension :"txt",
             size : "20KB",
+            id:1,
             uploadDate: Date.now()
         },
         {
             fileName : "test",
             extension :"txt",
             size : "20KB",
+            id:2,
             uploadDate: Date.now()
         },
         {
             fileName : "another",
             extension :"txt",
             size : "20KB",
+            id:3,
             uploadDate: Date.now()
         }
 
