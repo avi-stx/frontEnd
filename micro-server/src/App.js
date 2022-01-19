@@ -6,7 +6,7 @@ import axios from 'axios';
 async function fetchData(){
   console.log("sending request")
   const response =
-    await axios.get("http://localhost:8080/files",{})
+    await axios.get("http://localhost:8080/files")
   console.log(response.data)
 }
 

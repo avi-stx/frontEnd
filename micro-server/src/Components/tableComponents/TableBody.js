@@ -14,7 +14,6 @@ export default function TableBody(props) {
         )
     });
 
-    console.log(rows)
 
     return (
         <tbody>
