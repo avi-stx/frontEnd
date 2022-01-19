@@ -6,11 +6,11 @@ const TableHeader = () =>{
     return(
         <thead>
             <tr>
-                <th>name</th>
-                <th>extension</th>
-                <th>size</th>
-                <th>upload date</th>                    
-                <th></th>
+                <th>Name</th>
+                <th>Extension</th>
+                <th>Size</th>
+                <th>Upload date</th>                    
+                <th>Operation</th>
             </tr>
         </thead>
     )

@@ -8,10 +8,9 @@ export default function TableBody(props) {
                 <td>{element.fileName}</td>
                 <td>{element.extension}</td>
                 <td>{element.size}</td>
-                <td>{element.date}</td>
-                <td></td>
+                <td>{Date(element.date)}</td>
+                <td><button>Delete</button></td>
             </tr>
-
         )
     });
 
