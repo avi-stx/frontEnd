@@ -21,7 +21,7 @@ export default function TableBody(props) {
             <tr key={element.id}> 
                 <td>{fileName}</td>
                 <td>{fileExtension}</td>
-                <td>{element.size}</td>
+                <td>{element.size+" KB"}</td>
                 <td>{Date(element.date)}</td>
                 <td><button>Delete</button></td>
             </tr>
