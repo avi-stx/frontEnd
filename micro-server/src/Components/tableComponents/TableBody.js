@@ -12,8 +12,41 @@ const getFileDescription = (file) =>{
     return [getFileNAme(file),getFileExtension(file)]
 }
 
+
 export default function TableBody(props) {
-    console.log("in TableBody with props: ",props)
+
+
+    async function downloadFile(fileName){
+        fetch("http://localhost:8080/files/"+fileName)
+        .then(response => {
+                response.blob().then(blob => {
+                    let url = window.URL.createObjectURL(blob);
+                    let a = document.createElement('a');
+                    a.href = url;
+                    a.download = fileName;
+                    a.click();
+                });
+                //window.location.href = response.url;
+        });
+    }   
+
+    
+
+    async function removeFile(fileName){
+        fetch("http://localhost:8080/files/"+fileName,{
+            method: 'DELETE',
+          })
+          .then(res => {
+              if(res.status){
+                let newFilesList = props.filesList.filter(file => file.name!==fileName)
+                props.setTableStruct(newFilesList)
+              }
+          })
+    }
+
+
+
+    console.log("props are : ", props)
     const rows = props.filesList.map(element => {
 
         const [fileName, fileExtension] = getFileDescription(element.name)
@@ -23,7 +56,16 @@ export default function TableBody(props) {
                 <td>{fileExtension}</td>
                 <td>{element.size+" KB"}</td>
                 <td>{Date(element.date)}</td>
-                <td><button>Delete</button></td>
+                <td>
+                    <button onClick={() => removeFile(element.name)}>
+                        Delete
+                    </button>
+                </td>
+                <td>
+                    <button onClick={() => downloadFile(element.name)}>
+                        Download
+                    </button>
+                </td>
             </tr>
         )
     });
