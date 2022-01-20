@@ -1,46 +1,48 @@
 import TableHeader from './TableHeader';
 import './FilesTable.css'
 import TableBody from './TableBody';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+
+
+
 
 const FilesTable = () => 
 {
-    const demoStruct = [
-        {
-            fileName : "tal",
-            extension :"txt",
-            size : "20KB",
-            id:0,
-            uploadDate: Date.now()
-        },
-        {
-            fileName : "alfi",
-            extension :"txt",
-            size : "20KB",
-            id:1,
-            uploadDate: Date.now()
-        },
-        {
-            fileName : "test",
-            extension :"txt",
-            size : "20KB",
-            id:2,
-            uploadDate: Date.now()
-        },
-        {
-            fileName : "another",
-            extension :"txt",
-            size : "20KB",
-            id:3,
-            uploadDate: Date.now()
-        }
 
-    ]
+    const [tableStruct,setTableStruct] = useState(false)
 
+    async function fetchData(){
+
+        fetch("http://localhost:8080/files").then((response) => {
+            return response.json();
+          }) .then((data) => {
+            const transformedTable = data.map((rowData) => {
+              return {
+                ...rowData
+              };
+            });
+            setTableStruct(transformedTable);
+    
+          });
+      }
+
+    useEffect(() => {
+        (
+          async () => fetchData()
+        )()
+      }, [])
+
+
+    
     return (
-        <table className="styled-table">
-            <TableHeader />
-            <TableBody filesList={demoStruct}/>         
-        </table>
+        <>
+            <button onClick={fetchData} >get data from backend</button>
+            <table className="styled-table">
+                <TableHeader />
+                {tableStruct && <TableBody filesList={tableStruct}/>}
+            </table>
+        </>
     )
 }
 
