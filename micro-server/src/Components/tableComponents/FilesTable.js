@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 const FilesTable = () => 
 {
     const [tableStruct,setTableStruct] = useState(false)
+
     async function fetchData(){
         fetch("http://localhost:8080/files").then((response) => {
             return response.json();
@@ -30,7 +31,7 @@ const FilesTable = () =>
         <>
             <table className="styled-table">
                 <TableHeader />
-                {tableStruct && <TableBody filesList={tableStruct}/>}
+                {tableStruct && <TableBody filesList={tableStruct} setTableStruct={setTableStruct}/>}
             </table>
         </>
     )
