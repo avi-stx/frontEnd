@@ -4,9 +4,9 @@ import TableBody from './TableBody';
 import { useEffect, useState } from 'react';
 
 
-const FilesTable = () => 
+const FilesTable = (props) => 
 {
-    const [tableStruct,setTableStruct] = useState(false)
+    const [tableStruct,setTableStruct] = useState(0)
 
     async function fetchData(){
         fetch("http://localhost:8080/files").then((response) => {
@@ -25,12 +25,12 @@ const FilesTable = () =>
         (
           async () => fetchData()
         )()
-      }, [])
+      }, [props.reloadTable])
 
     return (
         <>
             <table className="styled-table">
-                <TableHeader />
+                <TableHeader reloadTable={props.reloadTable} setReloadTable={props.setReloadTable}/>
                 {tableStruct && <TableBody filesList={tableStruct} setTableStruct={setTableStruct}/>}
             </table>
         </>

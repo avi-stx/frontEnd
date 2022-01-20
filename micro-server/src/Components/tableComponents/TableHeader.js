@@ -1,7 +1,7 @@
 import './FilesTable.css'
+import UploadFile from "../UploadFile"
 
-
-const TableHeader = () =>{
+const TableHeader = (props) =>{
 
     return(
         <thead>
@@ -11,7 +11,9 @@ const TableHeader = () =>{
                 <th>Size</th>
                 <th>Upload date</th>                    
                 <th></th>
-                <th></th>
+                <th>
+                <UploadFile reloadTable={props.reloadTable} setReloadTable={props.setReloadTable}/>
+                </th>
             </tr>
         </thead>
     )
