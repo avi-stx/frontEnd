@@ -10,7 +10,8 @@ const TableHeader = () =>{
                 <th>Extension</th>
                 <th>Size</th>
                 <th>Upload date</th>                    
-                <th>Operation</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
     )
