@@ -2,14 +2,6 @@ import React, {useState} from 'react';
 import './UploadFile.css';
 
 export default function UploadFile(props){
-	const [selectedFile, setSelectedFile] = useState();
-	const [isFilePicked, setIsFilePicked] = useState(false);
-
-	const changeHandler = (event) => {
-		setSelectedFile(event.target.files[0]);
-		setIsFilePicked(true);
-
-	};
 
 	const handleSubmission = (fileToUpload) => {
 		const formData = new FormData();
