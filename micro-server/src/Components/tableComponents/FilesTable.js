@@ -31,7 +31,7 @@ const FilesTable = (props) =>
         <>
             <table className="styled-table">
                 <TableHeader reloadTable={props.reloadTable} setReloadTable={props.setReloadTable}/>
-                {tableStruct && <TableBody filesList={tableStruct} setTableStruct={setTableStruct}/>}
+                {tableStruct  ?  (<TableBody filesList={tableStruct} setTableStruct={setTableStruct}/>) : null}
             </table>
         </>
     )
