@@ -9,7 +9,7 @@ const FilesTable = (props) =>
     const [tableStruct,setTableStruct] = useState(0)
 
     async function fetchData(){
-        fetch("http://localhost:8080/files").then((response) => {
+        fetch("files").then((response) => {
             return response.json();
           }) .then((data) => {
             const transformedTable = data.map((rowData) => {

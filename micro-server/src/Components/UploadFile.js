@@ -9,7 +9,7 @@ export default function UploadFile(props){
 		formData.append('file', fileToUpload);
 
 		fetch(
-			'http://localhost:8080/files',
+			'files',
 			{
 				method: 'POST',
 				body: formData,

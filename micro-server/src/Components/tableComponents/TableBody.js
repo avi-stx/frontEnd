@@ -17,7 +17,7 @@ export default function TableBody(props) {
 
 
     async function downloadFile(fileName){
-        fetch("http://localhost:8080/files/"+fileName)
+        fetch("files/"+fileName)
         .then(response => {
                 response.blob().then(blob => {
                     let url = window.URL.createObjectURL(blob);
@@ -33,7 +33,7 @@ export default function TableBody(props) {
     
 
     async function removeFile(fileName){
-        fetch("http://localhost:8080/files/"+fileName,{
+        fetch("files/"+fileName,{
             method: 'DELETE',
           })
           .then(res => {
