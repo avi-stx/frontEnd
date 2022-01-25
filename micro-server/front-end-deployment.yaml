@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deploy
+  labels:
+    name: frontend-deploy
+    app: frontend-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: frontend-pod
+      app: frontend-app
+  template:
+    metadata:
+      name: frontend-pod
+      labels:
+        name: frontend-pod
+        app: frontend-app
+    spec:
+      containers:
+        - name: frontend
+          image: alfital2/front-end3
+          ports:
+            - containerPort: 3000
+
+
+#---
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  name: frontend-deployment
+#  labels:
+#    app: myFrontend
+#    type: front-end
+#spec:
+#  template:
+#    metadata:
+#      name: frontend-pod
+#      labels:
+#        app: myFrontend
+#        type: front-end
+#    spec:
+#      containers:
+#        - name: front-end
+#          image: "alfital2/front-end3"
+#          ports:
+#            - containerPort: 3000
+#  replicas: 1
+#  selector:
+#    matchLabels:
+#      type: front-end
+#---
